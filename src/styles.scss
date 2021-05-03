@@ -1,1 +1,81 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./variables.scss";
+
+html,
+body,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arkhip", "Poppins", sans-serif;
+}
+
+html,
+body {
+  // background-color: #1f242d;
+}
+
+body {
+  background: linear-gradient(-45deg, #1e2125, #1f242d, #171b20, #13161f);
+  background-size: 200% 200%;
+  animation: change-bg-color 20s ease-in-out infinite;
+}
+
+a {
+  text-decoration: none;
+}
+
+// Style to Mobile
+@media (max-width: 720px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 32px 64px;
+    // background: yellow;
+  }
+}
+
+// Style to Desktop
+@media (min-width: 720px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 32px 64px;
+    // background: yellow;
+  }
+}
+
+.button {
+  margin-top: 32px;
+  background: none;
+  border: 2px solid $primary-color;
+  color: $white-color;
+  font-size: 16px;
+  letter-spacing: 2px;
+  outline: none;
+
+  padding: 12px 24px;
+  cursor: pointer;
+  user-select: none;
+  transition: 100ms;
+}
+.button:hover {
+  background: $primary-color;
+}
+
+@keyframes change-bg-color {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
