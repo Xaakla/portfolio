@@ -21,6 +21,7 @@
     "@angular/router": "~11.0.6",
     "angular-font-awesome": "^3.1.2",
     "font-awesome": "^4.7.0",
+    "keen-slider": "^5.4.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

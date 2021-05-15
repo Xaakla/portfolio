@@ -1,0 +1,9 @@
+<div class="slider-wrapper">
+  <div class="keen-slider" #sliderRef>
+    <div class="keen-slider__slide" *ngFor="let slide of slides">
+      <div [ngStyle]="{'background-image': 'url(' + slide.color + ')'}" class="slide">
+        <div>{{ slide.text }}</div>
+      </div>
+    </div>
+  </div>
+</div>

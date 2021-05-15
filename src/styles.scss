@@ -19,6 +19,7 @@ body {
   background: linear-gradient(-45deg, #1e2125, #1f242d, #171b20, #13161f);
   background-size: 200% 200%;
   animation: change-bg-color 20s ease-in-out infinite;
+  color: #fff;
 }
 
 a {
@@ -32,7 +33,23 @@ a {
     flex-direction: column;
     height: 100%;
     padding: 32px 64px;
-    // background: yellow;
+  }
+
+  .regular {
+    .regular-main {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .right {
+    .mate-img {
+      width: 325px;
+    }
+  }
+
+  .page-title {
+    margin-bottom: 32px;
   }
 }
 
@@ -48,6 +65,39 @@ a {
     padding: 32px 64px;
     // background: yellow;
   }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // background: red;
+  width: 100%;
+  height: 100%;
+}
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background: green;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .mate-img {
+    animation: mate-img 0.8s forwards ease-out 0.3s;
+    opacity: 0;
+    user-select: none;
+  }
+}
+
+.neon {
+  filter: blur(0.6px);
+  text-transform: initial;
+  text-shadow: 0 0 1px $primary-color, 0 0 2px $primary-color,
+    0 0 4px $primary-color, 0 0 8px $primary-color, 0 0 16px $primary-color;
+  position: relative;
 }
 
 .button {
@@ -68,6 +118,53 @@ a {
   background: $primary-color;
 }
 
+.regular {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .regular-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    // background: red;
+  }
+}
+
+.page-title {
+  font-size: 48px;
+  letter-spacing: 2px;
+  color: #fff;
+  animation: page-title 0.8s forwards ease-out;
+}
+
+@keyframes page-title {
+  from {
+    position: absolute;
+    top: -64px;
+    left: 32px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    left: 32px;
+    opacity: 1;
+    position: relative;
+  }
+}
+
+@keyframes mate-img {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes change-bg-color {
   0% {
     background-position: 0% 50%;
@@ -77,5 +174,15 @@ a {
   }
   100% {
     background-position: 0 50%;
+  }
+}
+
+@keyframes home-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  to {
+    opacity: 1;
   }
 }
