@@ -1,5 +1,4 @@
 import { Component, Input, ElementRef, ViewChild } from '@angular/core';
-import KeenSlider from 'keen-slider';
 
 @Component({
   selector: 'slider',
@@ -7,16 +6,13 @@ import KeenSlider from 'keen-slider';
   styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent {
-  @Input() slides: { text: string; color: string }[];
-  @ViewChild('sliderRef') sliderRef: ElementRef<HTMLElement>;
-
-  slider: any = null;
-
-  ngAfterViewInit() {
-    this.slider = new KeenSlider(this.sliderRef.nativeElement);
-  }
-
-  ngOnDestroy() {
-    if (this.slider) this.slider.destroy();
-  }
+  @Input() slides: {
+    _id: string,
+    title: string;
+    summary: string,
+    description: string,
+    source_code: string,
+    image: string,
+    text?: string,
+    color?: string }[];
 }
