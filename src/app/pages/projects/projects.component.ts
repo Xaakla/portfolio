@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ProjectsService } from './projects.service';
+import {ApiService} from "../../shared/api/api.service";
 
 @Component({
   selector: 'app-projects',
@@ -20,13 +20,13 @@ export class ProjectsComponent implements OnInit {
 
   constructor(
     private titleService: Title,
-    private projectsService: ProjectsService
+    private apiService: ApiService
   ) {
     this.titleService.setTitle('Xaakla - Projects');
   }
 
   ngOnInit() {
-    this.projectsService.list()._subscribe((response) => {
+    this.apiService.list()._subscribe((response) => {
       this.slides = [...this.slides, ...response];
       console.log(this.slides);
     });

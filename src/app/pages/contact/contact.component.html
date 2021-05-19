@@ -9,19 +9,23 @@
         <form>
           <div class="input-block">
             <label id="lbl-username" for="username" (click)="expand('username')">NAME</label>
-            <input type="text" id="username" placeholder="Enter your name" required>
+            <input #nameValue type="text" id="username" placeholder="Enter your name" required>
           </div>
 
           <div class="input-block">
             <label id="lbl-email" for="email" (click)="expand('email')">EMAIL</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
+            <input #emailValue type="email" id="email" placeholder="Enter your email" required>
           </div>
 
           <div class="input-block">
-            <textarea placeholder="Enter your message" rows="6"></textarea>
+            <textarea #msgValue placeholder="Enter your message" rows="6"></textarea>
           </div>
 
-          <app-button>SEND MESSAGE</app-button>
+          <app-button
+            (click)="sendMessage(nameValue, emailValue, msgValue)"
+          >
+            SEND MESSAGE
+          </app-button>
         </form>
       </section>
       <section class="right">
