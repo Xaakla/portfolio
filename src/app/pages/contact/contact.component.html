@@ -1,3 +1,32 @@
-<p>
-  contact works!
-</p>
+<div class="container">
+  <div class="regular">
+    <h1 class="page-title neon">
+      Contact Me
+    </h1>
+
+    <div class="regular-main">
+      <section class="left">
+        <form>
+          <div class="input-block">
+            <label id="lbl-username" for="username" (click)="expand('username')">NAME</label>
+            <input type="text" id="username" placeholder="Enter your name" required>
+          </div>
+
+          <div class="input-block">
+            <label id="lbl-email" for="email" (click)="expand('email')">EMAIL</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+
+          <div class="input-block">
+            <textarea placeholder="Enter your message" rows="6"></textarea>
+          </div>
+
+          <app-button>SEND MESSAGE</app-button>
+        </form>
+      </section>
+      <section class="right">
+        <img src="../../../assets/svg/contact.svg" alt="contact me" class="mate-img">
+      </section>
+    </div>
+  </div>
+</div>
