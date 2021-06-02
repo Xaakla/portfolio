@@ -13,7 +13,7 @@ body,
 
 html,
 body {
-  // background-color: #1f242d;
+   //background-color: #1f242d;
 }
 
 body {
@@ -29,7 +29,7 @@ a {
 
 // Style to Mobile
 @media (max-width: 720px) {
-  .container {
+  .container-page {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -56,7 +56,7 @@ a {
 
 // Style to Desktop
 @media (min-width: 720px) {
-  .container {
+  .container-page {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -64,7 +64,7 @@ a {
     width: 100%;
     height: 100%;
     padding: 32px 64px;
-    // background: yellow;
+     //background: yellow;
   }
 }
 
@@ -72,7 +72,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // background: red;
+   //background: red;
   width: 100%;
   height: 100%;
 }
@@ -131,6 +131,7 @@ a {
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
     // background: red;
   }
 }

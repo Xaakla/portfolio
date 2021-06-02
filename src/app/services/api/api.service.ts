@@ -10,14 +10,11 @@ export class ApiService {
 
   private readonly API: string = environment.API;
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
   list(): any {
     return this.http.get<any>(this.API + 'projects')
-      .pipe(
-        tap(console.log)
-      );
+      .pipe(take(1));
   }
 
   sendMail(data: any): any {

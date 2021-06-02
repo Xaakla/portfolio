@@ -20,9 +20,11 @@ export class SliderComponent {
 
   paused = false;
   unpauseOnArrow = false;
-  pauseOnIndicator = false;
-  pauseOnHover = true;
-  pauseOnFocus = true;
+  pauseOnIndicator = true;
+  pauseOnHover = false;
+  pauseOnFocus = false;
+  showNavigationArrows = false;
+  showNavigationIndicators= true;
 
   @ViewChild('carousel', {static: true}) carousel: NgbCarousel;
 

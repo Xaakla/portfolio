@@ -1,4 +1,12 @@
-<ngb-carousel #carousel [interval]="2000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
+<ngb-carousel
+  #carousel
+  [showNavigationArrows]="showNavigationArrows"
+  [showNavigationIndicators]="showNavigationIndicators"
+  [interval]="2000"
+  [pauseOnHover]="pauseOnHover"
+  [pauseOnFocus]="pauseOnFocus"
+  (slide)="onSlide($event)"
+>
   <ng-template ngbSlide *ngFor="let slide of slides; index as i">
     <div class="carousel-caption">
       <h3>{{slide?.title}}</h3>
@@ -10,3 +18,11 @@
     </a>
   </ng-template>
 </ngb-carousel>
+
+<ng-template [ngIf]="slides.length === 0">
+  <main class="loading">
+    <section><div></div></section>
+    <section><div></div></section>
+    <section><div></div></section>
+  </main>
+</ng-template>
