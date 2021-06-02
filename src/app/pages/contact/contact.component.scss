@@ -68,8 +68,11 @@ form {
 ::placeholder{
   color: transparent;
 }
-.my-style::placeholder{
-  color: #a5a5a5;
+.my-style {
+  height: 45px !important;
+  &::placeholder{
+    color: #a5a5a5;
+  }
 }
 
 .input-block:nth-child(1) {

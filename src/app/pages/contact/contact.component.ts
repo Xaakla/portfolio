@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import {ApiService} from "../../shared/api/api.service";
+import {Component, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
+import {ApiService} from '../../services/api/api.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -9,36 +10,35 @@ import {ApiService} from "../../shared/api/api.service";
 })
 export class ContactComponent implements OnInit {
 
-  @Input() username;
+  contactForm: FormGroup;
 
   constructor(
     private titleService: Title,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private formBuilder: FormBuilder
   ) {
-    this.titleService.setTitle("Xaakla - Contact Me");
+    this.titleService.setTitle('Xaakla - Contact Me');
   }
 
   ngOnInit() {
+    this.initForm();
   }
 
-  expand(lbl){
-    let inputElem = document.querySelector(`#${lbl}`);
-    let labelElem = document.querySelector(`#lbl-${lbl}`);
-
-    inputElem.style.height = "45px";
-    inputElem.classList.add("my-style");
-    labelElem.style.transform = "translateY(-45px)";
+  initForm() {
+    this.contactForm = this.formBuilder.group({
+      name: [null, [Validators.required]],
+      subject: ['Proposta de Emprego - Portfolio Diego Rocha', Validators.required],
+      replyTo: [null, [Validators.required]],
+      text: [null, [Validators.required]],
+    });
   }
 
-  sendMessage(name, replyTo, text) {
-    const data = {
-      name: name.value,
-      subject: "Proposta de Emprego - Portfolio Diego Rocha",
-      replyTo: replyTo.value,
-      text: text.value
+  sendMessage() {
+    console.log(this.contactForm);
+    if (this.contactForm.valid) {
+      this.apiService.sendMail(this.contactForm.value)
+        .subscribe(/*What to do after sending mail*/);
     }
-
-    this.apiService.sendMail(data);
   }
 
 }

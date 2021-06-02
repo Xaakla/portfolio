@@ -1,13 +1,13 @@
 import {Component, Input, ViewChild} from '@angular/core';
-import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import {NgbCarousel, NgbSlideEvent, NgbSlideEventSource} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'slider',
+  selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent {
-  @Input("slides") slides: {
+  @Input() slides: {
     _id: string,
     title: string;
     summary: string,
@@ -15,9 +15,8 @@ export class SliderComponent {
     source_code: string,
     image: string,
     text?: string,
-    color?: string }[];
-
-  images = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://picsum.photos/id/${n}/900/500`);
+    color?: string
+  }[];
 
   paused = false;
   unpauseOnArrow = false;
@@ -25,7 +24,7 @@ export class SliderComponent {
   pauseOnHover = true;
   pauseOnFocus = true;
 
-  @ViewChild('carousel', {static : true}) carousel: NgbCarousel;
+  @ViewChild('carousel', {static: true}) carousel: NgbCarousel;
 
   togglePaused() {
     if (this.paused) {

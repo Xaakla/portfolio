@@ -1,22 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import {NgbCarousel, NgbCarouselModule, NgbModule, NgbRating} from '@ng-bootstrap/ng-bootstrap';
-
-import { AppRoutingModule, routingComponents } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ButtonComponent } from './components/button/button.component';
-import { SliderComponent } from './components/slider/slider.componets';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppRoutingModule, routingComponents} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    ButtonComponent,
-    SliderComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule,  NgbCarouselModule],
-  providers: [ NgbCarousel, NgbRating ],
+  imports: [BrowserModule, AppRoutingModule, SharedModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

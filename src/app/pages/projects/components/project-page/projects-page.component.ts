@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import {ApiService} from "../../shared/api/api.service";
+import {ApiService} from '../../../../services/api/api.service';
 
 @Component({
   selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss'],
+  templateUrl: './projects-page.component.html',
+  styleUrls: ['./projects-page.component.scss'],
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsPageComponent implements OnInit {
   name = 'Angular';
   slides = [
     {

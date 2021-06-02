@@ -6,24 +6,27 @@
 
     <div class="regular-main">
       <section class="left">
-        <form>
-          <div class="input-block">
-            <label id="lbl-username" for="username" (click)="expand('username')">NAME</label>
-            <input #nameValue type="text" id="username" placeholder="Enter your name" required>
+        <form [formGroup]="contactForm">
+          <div class="input-block" (click)="contactForm.controls.name.markAsTouched()">
+            <label for="username" [style]="contactForm.controls.name.touched ? 'transform: translateY(-45px)' : ''">
+              NAME</label>
+            <input type="text" id="username" placeholder="Enter your name" required formControlName="name"
+                   [class]="contactForm.controls.name.touched ? 'my-style' : ''">
+          </div>
+
+          <div class="input-block" (click)="contactForm.controls.replyTo.markAsTouched()">
+            <label for="email"
+                   [style]="contactForm.controls.replyTo.touched ? 'transform: translateY(-45px)' : ''">
+              EMAIL</label>
+            <input type="email" email id="email" placeholder="Enter your email" required formControlName="replyTo"
+                  [class]="contactForm.controls.replyTo.touched ? 'my-style' : ''">
           </div>
 
           <div class="input-block">
-            <label id="lbl-email" for="email" (click)="expand('email')">EMAIL</label>
-            <input #emailValue type="email" id="email" placeholder="Enter your email" required>
+            <textarea #msgValue placeholder="Enter your message" rows="6" formControlName="text"></textarea>
           </div>
 
-          <div class="input-block">
-            <textarea #msgValue placeholder="Enter your message" rows="6"></textarea>
-          </div>
-
-          <app-button
-            (click)="sendMessage(nameValue, emailValue, msgValue)"
-          >
+          <app-button (click)="sendMessage()">
             SEND MESSAGE
           </app-button>
         </form>

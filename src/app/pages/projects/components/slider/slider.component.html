@@ -1,0 +1,12 @@
+<ngb-carousel #carousel [interval]="2000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
+  <ng-template ngbSlide *ngFor="let slide of slides; index as i">
+    <div class="carousel-caption">
+      <h3>{{slide?.title}}</h3>
+    </div>
+    <a [href]="slide?.source_code" target="_blank" rel="nofollow noopener noreferrer">
+      <div class="picsum-img-wrapper">
+        <img [src]="slide?.image" [alt]="slide?.description">
+      </div>
+    </a>
+  </ng-template>
+</ngb-carousel>
